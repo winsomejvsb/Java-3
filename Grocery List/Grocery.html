@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #grocery-list {
+    margin-top: 20px;
+    text-align: left;
+  }
+  #add-item-form {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<h1>Grocery List</h1>
+<div id="add-item-form">
+  <label for="item">Add Item:</label>
+  <input type="text" id="item" placeholder="Enter item">
+  <button onclick="addItem()">Add</button>
+</div>
+<ul id="grocery-list"></ul>
+
+<script>
+function addItem() {
+  const itemInput = document.getElementById('item');
+  const itemValue = itemInput.value.trim();
+
+  if (itemValue !== '') {
+    const groceryList = document.getElementById('grocery-list');
+    const listItem = document.createElement('li');
+    listItem.textContent = itemValue;
+    groceryList.appendChild(listItem);
+    itemInput.value = '';
+  } else {
+    alert('Please enter an item.');
+  }
+}
+</script>
+</body>
+</html>
